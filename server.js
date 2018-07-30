@@ -8,6 +8,9 @@ console.log('Hello Noteful!');
 
 // INSERT EXPRESS APP CODE HERE...
 
+app.get('/api/notes', (req, res) => {
+  res.json(data);
+});
 
 
 app.listen(8080, function () {

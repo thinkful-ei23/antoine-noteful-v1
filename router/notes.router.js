@@ -1,17 +1,7 @@
-'use strict';
 const express = require('express');
-const morgan = require('morgan');
+const router = express.Router();
 
-// Load array of notes
 const data = require('./db/notes');
-
-const app = express(); 
-console.log('Hello Noteful!');
-
-// INSERT EXPRESS APP CODE HERE...
-
-app.use(morgan('dev'));
-
 
 app.get('/', function(req,res) {
   res.send('hello, world!');
@@ -39,3 +29,5 @@ app.listen(8080, function () {
 }).on('error', err => {
   console.error(err);
 });
+
+module.exports = router;

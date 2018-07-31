@@ -1,6 +1,9 @@
 'use strict';
 const express = require('express');
 const { PORT } = require('./config');
+const logger = require('./middleware/logger');
+
+
 
 // Load array of notes
 const data = require('./db/notes');
@@ -10,6 +13,7 @@ console.log('Hello Noteful!');
 
 // INSERT EXPRESS APP CODE HERE...
 
+app.use(logger);
 app.get('/api/notes', (req, res) => {
   const query = req.query;
   let list = data;

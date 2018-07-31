@@ -28,6 +28,11 @@ const updateObj = {
   content: 'Blah blah blah'
 };
 
+const newObj = {
+  id: 3000,
+  title: 'fucker',
+  content: 'fuck this amazing shit(in a good way)'
+}
 notes.update(1005, updateObj, (err, item) => {
   if (err) {
     console.error(err);
@@ -39,4 +44,24 @@ notes.update(1005, updateObj, (err, item) => {
   }
 });
 
+notes.create(newObj, (err, item) => {
+  if (err) {
+    console.error(err);
+  }
+  if (item) {
+    console.log(item);
+  } else {
+    console.log('not found');
+  }
+})
 
+notes.delete(1010, (err, item) => {
+  if (err) {
+    console.error(err);
+  }
+  if (item) {
+    console.log(item);
+  } else {
+    console.log('not found');
+  }
+})

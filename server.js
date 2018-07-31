@@ -7,6 +7,8 @@ const logger = require('./middleware/logger');
 
 // Load array of notes
 const data = require('./db/notes');
+const simDB = require('./db/simDB');
+const notes = simDB.initialize(data);
 
 const app = express(); 
 console.log('Hello Noteful!');
@@ -51,3 +53,4 @@ app.listen(PORT, function () {
 }).on('error', err => {
   console.error(err);
 });
+

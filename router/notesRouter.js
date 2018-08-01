@@ -49,16 +49,19 @@ router.post('/notes', (req, res, next) => {
 
 router.delete('/notes/:id', (req, res) => {
   const {id} = req.params;
-
-  notes.delete(id, err => {
+  console.log("Before delete:", notes.data.length);
+ 
+  notes.delete(id, (err, len) => {
     if(err) {
       res.status(500).json(err);
+    } else if(len === null){
+      res.status(404).json('Not found');
     } else {
-      res.status(204).json('no-content');
+      res.sendStatus(204);
     }
   });
+  console.log("After deleting", id, "remaining:", notes.data.length)
+
 });
-
-
 
 module.exports = router;

@@ -79,14 +79,10 @@ const noteful = (function () {
       noteObj.id = store.currentNote.id;
 
       api.update(noteObj.id, noteObj, updateResponse => {
-        store,currentNote = updateResponse;
-
+        store.currentNote = updateResponse;
         render();
       })
-
-
       console.log('Submit Note, coming soon...');
-
     });
   }
 

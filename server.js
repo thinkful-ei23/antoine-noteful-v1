@@ -30,9 +30,16 @@ app.get('/api/notes', (req, res) => {
 });
 
 app.get('/api/notes/:id', (req, res) => {
-  let id = req.params.id;
-  let note = data.find(note => note.id === parseInt(id));
-  res.json(note);
+  let { id } = req.params;
+
+  notes.find(id, (err, list) => {
+    if(err) {
+      return next(err);
+    }
+    res.json(list);
+  });
+  
+  
 });
 
 // Default error handler

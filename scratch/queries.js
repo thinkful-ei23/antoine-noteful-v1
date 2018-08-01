@@ -5,7 +5,7 @@ const notes = simDB.initialize(data);
 // GET Notes with search
 notes.filter('dogs', (err, list) => {
   if (err) {
-    console.error(err);
+    console.log(err);
   }
   console.log(list);
 });
@@ -29,9 +29,8 @@ const updateObj = {
 };
 
 const newObj = {
-  id: 3000,
-  title: 'fucker',
-  content: 'fuck this amazing shit(in a good way)'
+  title: 'this is a title',
+  content: 'cool content'
 }
 notes.update(1005, updateObj, (err, item) => {
   if (err) {

@@ -16,14 +16,17 @@ console.log('Hello Noteful!');
 // INSERT EXPRESS APP CODE HERE...
 
 app.use(logger);
-app.get('/api/notes', (req, res) => {
-  const query = req.query;
-  let list = data;
 
-  if(query.searchTerm) {
-    list = list.filter(note => note.title.includes(query.searchTerm));
-  }
-  res.json(list);
+app.get('/api/notes', (req, res) => {
+  const { searchTerm } = req.query;
+
+  notes.filter(searchTerm, (err,list) => {
+    if(err) {
+      return next(err); // goes to error handler
+    }
+    res.json(list); // responds with filter array
+  });
+ 
 });
 
 app.get('/api/notes/:id', (req, res) => {

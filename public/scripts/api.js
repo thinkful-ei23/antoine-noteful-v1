@@ -20,7 +20,7 @@ const api = {
       url: `/api/notes/${id}`,
       success: callback
     });
-  }
+  },
 
   update: function(id, obj, callback) {
     $.ajax({

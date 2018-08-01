@@ -1,13 +1,14 @@
 const express = require('express');
 const router = express.Router();
+const data = require('../db/notes');
+const simDB = require('../db/simDB');
+const notes = simDB.initialize(data);
 
-const data = require('./db/notes');
-
-app.get('/', function(req,res) {
+router.get('/', function(req,res) {
   res.send('hello, world!');
 })
 
-app.get('/api/notes', (req, res) => {
+router.get('/notes', (req, res) => {
   const query = req.query;
   let list = data;
 
@@ -17,17 +18,12 @@ app.get('/api/notes', (req, res) => {
   res.json(list);
 });
 
-app.get('/api/notes/:id', (req, res) => {
+router.get('/notes/:id', (req, res) => {
   let id = req.params.id;
   let note = data.find(note => note.id === parseInt(id));
   res.json(note);
 });
 
 
-app.listen(8080, function () {
-  console.info(`Server listening on ${this.address().port}`);
-}).on('error', err => {
-  console.error(err);
-});
 
 module.exports = router;

@@ -19,14 +19,24 @@ router.get('/notes', (req, res) => {
 router.get('/notes/:id', (req, res) => {
   let { id } = req.params;
 
-  notes.find(id, (err, list) => {
-    if(err) {
-      return next(err);
-    }
-    res.json(list);
-  });
+  // notes.find(id, (err, list) => {
+  //   if(err) {
+  //     return next(err);
+  //   }
+  //   res.json(list);
+  // });
   
-  
+  notes.find(id)
+    .then(item => {
+      if(item) {
+        res.json(item);
+      } else {
+        next();
+      }
+    })
+    .catch(err => {
+      next(err);
+    }); 
 });
 
 router.put('/notes/:id', (req, res, next) => {

@@ -10,11 +10,7 @@ console.log('Hello Noteful!');
 // INSERT EXPRESS APP CODE HERE...
 app.use(express.static('public'));
 app.use(express.json());
-
-
 app.use(morgan('dev'));
-app.use(express.static('public'));
-app.use(express.json());
 app.use('/api', notesRouter);
 
 // Default error handler

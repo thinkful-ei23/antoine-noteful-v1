@@ -19,6 +19,7 @@ app.use(function(req, res, next) {
   err.status = 404;
   res.status(404).json({message: 'Not Found'});
 });
+
 // Custom error handler middleware
 app.use(function(err, req, res, next) {
   res.status(err.status || 500);

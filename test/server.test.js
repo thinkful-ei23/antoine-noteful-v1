@@ -107,7 +107,7 @@ describe('GET/api/notes/:id', function() {
         expect(res.body.title).to.equal('5 life lessons learned from cats');
       });
   });
-
+  // NEED TO FIX OVER THE WEEKEND
   // it('should respond with a 404 for an invalid ID', function() {
   //   return chai
   //     .request(app)
@@ -197,7 +197,7 @@ describe('PUT/api/notes/:id', function() {
         expect(res).to.have.status(404);
       });
   });
-
+  // FIX OVER THE WEEKEND
   it('should return an error when missing "title" field', function () {
     const updateItem = {
       'foo': 'bar'

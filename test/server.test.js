@@ -212,7 +212,7 @@ describe('PUT/api/notes/:id', function() {
 //         expect(res.body).to.be.a('object');
 //       });
 //   });
-// });
+});
 
 describe('DELETE/api/notes/:id', function() {
   it('should delete an item by id', function() {

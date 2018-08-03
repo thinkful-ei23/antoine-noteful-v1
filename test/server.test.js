@@ -197,6 +197,7 @@ describe('PUT/api/notes/:id', function() {
         expect(res).to.have.status(404);
       });
   });
+  
   // FIX OVER THE WEEKEND
 //   it('should return an error when missing "title" field', function () {
 //     const updateItem = {
